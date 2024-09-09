@@ -71,6 +71,16 @@ main {
     transition: background-color 0.5s;
 }
 
+.search-button:hover {
+    background-color: #1f6fb2;
+}
+
+.hr-download {
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}
+
 /* footer */
 footer {
     background-color: #444;
