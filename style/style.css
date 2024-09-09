@@ -1,0 +1,145 @@
+/*
+    main styles for the application
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    /* disable text selection */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* nav styles */
+nav {
+    height: 4vh;
+    background-color: #444;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav a {
+    font-size: 0.9em;
+    color: #ffffffa7;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: color 0.5s;
+}
+
+nav a:hover, a.active {
+    color: #fff;
+}
+
+/* main */
+main {
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+button {
+    background-color: #2a8fdb;
+    color: #fff;
+    border: none;
+    border-radius: 980px;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.basic-info {
+    height: 96vh; /* 95vh beacuse of the nav */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.basic-info button {
+    margin-top: 20px;
+    transition: background-color 0.5s;
+}
+
+.basic-info button:hover {
+    background-color: #38a9ff;
+}
+
+.basic-info img {
+    width: 800px;
+    height: 400px;
+    margin-top: 50px;
+}
+
+.our-tools {
+    width: 80%;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    background-color:rgb(39, 38, 38);
+    color: white;
+    border-radius: 15px;
+}
+
+.tools {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+.tool {
+    width: 45%;
+    height: 180px;
+    background-color: #444;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tool img {
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+}
+
+.tool button {
+    margin-top: 20px;
+    transition: background-color 0.5s;
+}
+
+.tool button:hover {
+    background-color: #38a9ff;
+}
+
+/* footer */
+footer {
+    background-color: #444;
+    color: #ffffffa7;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.8em;
+}
