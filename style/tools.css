@@ -81,6 +81,69 @@ main {
     width: 30%;
 }
 
+.apps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: lightgrey;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.category {
+    background-color: #444;
+    color: #ffffffa7;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.5s;
+}
+
+.category:hover {
+    background-color: #333;
+}
+
+.category h2 {
+    font-size: 1.2em;
+}
+
+.app-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.app {
+    background-color: white;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    width: 180px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app strong {
+    font-size: 1em;
+    color: #444;
+}
+
+.app a {
+    color: #2a8fdb;
+    text-decoration: none;
+    margin-top: 10px;
+    transition: color 0.5s;
+}
+
+.app a:hover {
+    color: #1f6fb2;
+}
+
+
 /* footer */
 footer {
     background-color: #444;
