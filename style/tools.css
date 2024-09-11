@@ -135,7 +135,6 @@ main {
 .app a {
     color: #2a8fdb;
     text-decoration: none;
-    margin-top: 10px;
     transition: color 0.5s;
 }
 
