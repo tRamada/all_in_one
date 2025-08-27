@@ -1,6 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
     var appSection = document.querySelector('.apps');
 
+    // Theme handling
+    (function initTheme() {
+        var root = document.documentElement;
+        var stored = localStorage.getItem('aio-theme');
+        if (stored === 'light') {
+            root.classList.add('theme-light');
+        } else if (!stored) {
+            // Respect OS preference on first load
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                root.classList.add('theme-light');
+                localStorage.setItem('aio-theme', 'light');
+            }
+        }
+        var toggle = document.getElementById('themeToggle');
+        if (toggle) {
+            toggle.addEventListener('click', function () {
+                root.classList.toggle('theme-light');
+                localStorage.setItem('aio-theme', root.classList.contains('theme-light') ? 'light' : 'dark');
+            });
+        }
+    })();
+
     // Define categories, apps, and icon URLs
     var appData = {
         'Browsers': [
@@ -27,7 +49,8 @@ document.addEventListener('DOMContentLoaded', function () {
             { name: 'VLC Media Player', link: 'https://www.videolan.org/vlc/index.html', icon: 'https://upload.wikimedia.org/wikipedia/commons/3/38/VLC_icon.png' },
             { name: '7-Zip', link: 'https://www.7-zip.org/download.html', icon: 'https://upload.wikimedia.org/wikipedia/commons/2/24/7-Zip_Icon.png' },
             { name: 'Notepad++', link: 'https://notepad-plus-plus.org/downloads/', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/f5/Notepad_plus_plus.png' },
-            { name: 'Audacity', link: 'https://www.audacityteam.org/download/', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Audacity_Logo.svg' }
+            { name: 'Audacity', link: 'https://www.audacityteam.org/download/', icon: 'https://upload.wikimedia.org/wikipedia/commons/f/f6/Audacity_Logo.svg' },
+            { name: 'Discord', link: 'https://discord.com/download', icon: 'https://upload.wikimedia.org/wikipedia/fr/4/4f/Discord_Logo_sans_texte.svg' }
         ]
     };
 
@@ -42,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 var apps = category.querySelectorAll('.app');
                 var hasVisibleApp = false; // Flag to check if any app is visible
 
-                apps.forEach(function (app) {
+        apps.forEach(function (app) {
                     var appName = app.querySelector('strong').textContent.toLowerCase();
                     if (appName.includes(searchValue)) {
-                        app.style.display = 'flex'; // Show matching apps
+            app.style.display = ''; // show (revert to stylesheet display)
                         hasVisibleApp = true;
                     } else {
                         app.style.display = 'none'; // Hide non-matching apps
@@ -53,11 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
 
                 // If no apps are visible in this category, hide the category
-                if (hasVisibleApp) {
-                    category.style.display = 'block';
-                } else {
-                    category.style.display = 'none';
-                }
+                category.style.display = hasVisibleApp ? '' : 'none';
             });
         });
     }
@@ -81,8 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
             var appIcon = document.createElement('img');
             appIcon.src = app.icon;
             appIcon.alt = app.name + ' icon';
-            appIcon.style.width = '60px';
-            appIcon.style.height = '60px';
             appDiv.appendChild(appIcon);
 
             var appName = document.createElement('strong');
